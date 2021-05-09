@@ -27,7 +27,7 @@ public class Adaptery extends RecyclerView.Adapter<Adaptery.MyViewHolder> implem
     private Context mcontext;
     private List<MovieModelClass> mdata;
     private List<MovieModelClass> mdataFilter;
-    private ItemClickListener mItemClickListener;
+
     private CustomItemClickListener customItemClickListener;
 
 
@@ -38,9 +38,7 @@ public class Adaptery extends RecyclerView.Adapter<Adaptery.MyViewHolder> implem
         this.customItemClickListener = customItemClickListener;
     }
 
-    public void setItemClickListener(ItemClickListener itemClickListener){
-        this.mItemClickListener = itemClickListener;
-    }
+
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -99,7 +97,7 @@ public class Adaptery extends RecyclerView.Adapter<Adaptery.MyViewHolder> implem
             name = itemView.findViewById(R.id.textView2_name);
             img = itemView.findViewById(R.id.imageView);
             btn = itemView.findViewById(R.id.kaydet);
-            filterText = itemView.findViewById(R.id.editTextFilterFilms);
+
         }
     }
 
@@ -117,7 +115,7 @@ public class Adaptery extends RecyclerView.Adapter<Adaptery.MyViewHolder> implem
                         ArrayList<MovieModelClass> tempFilteredList = new ArrayList<>();
                         for (MovieModelClass station : mdata) {
                             // search for station name
-                            if (station.getName().toLowerCase().contains(searchString)) {
+                            if (station.getId().toLowerCase().contains(searchString)) {
                                 tempFilteredList.add(station);
                             }
                         }
